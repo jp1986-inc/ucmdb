@@ -1,4 +1,4 @@
-package ucmdbsdk
+package rest
 
 // Authentication structure
 
