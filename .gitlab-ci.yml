@@ -1,10 +1,10 @@
 
 stages:
-  - push
+  - publish
 
 # trigger releasing to GitHub.com
 push-to-github:
-  stage: psuh
+  stage: publish
   variables: 
     GIT_DEPTH: 0
   image: 
