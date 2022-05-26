@@ -3,7 +3,7 @@ stages:
   - publish
 
 # trigger releasing to GitHub.com
-push-to-github:
+publish-to-github:
   stage: publish
   variables: 
     GIT_DEPTH: 0
