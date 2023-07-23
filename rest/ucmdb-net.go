@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"regexp"
+	"crypto/tls"
 )
 
 type Client struct {
@@ -31,7 +32,7 @@ func NewClient(address string, username string, password string) (*Client, error
 	headers.Add("Accept", "application/json")
 
 	client := &Client{
-		client:   http.DefaultClient,
+		client:   http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true},
 		headers:  &headers,
 		address:  baseURL,
 		username: username,
