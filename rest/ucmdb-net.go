@@ -35,11 +35,12 @@ func NewClient(address string, username string, password string) (*Client, error
 	}
 
 	client := &Client{
-		client:   http.DefaultClient{Transport: tr},
+		client:   http.DefaultClient,
 		headers:  &headers,
 		address:  baseURL,
 		username: username,
 		password: password,
+		Transport: &tr
 	}
 	client.Ucmdb = &ucmdb{client}
 	err = client.getToken()
