@@ -34,10 +34,9 @@ func NewClient(address string, username string, password string) (*Client, error
 	tr := &http.Transport{
         TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
     }
-        client_insecure := &http.Client{Transport: tr}
 
 	client := &Client{
-		client:   &client_insecure,
+		client:   &http.Client{Transport: tr},
 		headers:  &headers,
 		address:  baseURL,
 		username: username,
