@@ -37,7 +37,7 @@ func NewClient(address string, username string, password string) (*Client, error
         client_insecure := &http.Client{Transport: tr}
 
 	client := &Client{
-		client:   client_insecure,
+		client:   &client_insecure,
 		headers:  &headers,
 		address:  baseURL,
 		username: username,
