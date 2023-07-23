@@ -30,10 +30,12 @@ func NewClient(address string, username string, password string) (*Client, error
 	headers := make(http.Header)
 	headers.Add("Content-Type", "application/json")
 	headers.Add("Accept", "application/json")
-	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
 
 	client := &Client{
-		client:   http.DefaultClient,
+		client:   http.DefaultClient{Transport: tr},
 		headers:  &headers,
 		address:  baseURL,
 		username: username,
