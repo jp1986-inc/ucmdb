@@ -31,7 +31,7 @@ func NewClient(address string, username string, password string) (*Client, error
 	headers.Add("Accept", "application/json")
 
 	client := &Client{
-		client:   http.DefaultClient,
+		client:   http.Client,
 		headers:  &headers,
 		address:  baseURL,
 		username: username,
